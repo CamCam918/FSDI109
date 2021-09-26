@@ -1,0 +1,14 @@
+.catalog-page{
+    min-height:calc(100vh - 120px);
+}
+@media(max-width:414px){
+    .catalog-page{
+        height:calc(100vh - 120px);
+        overflow-y: scroll;
+    }
+}
+.catalog-page .item-container{
+    display:flex;
+    flex-wrap:wrap;
+
+}

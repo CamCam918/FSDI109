@@ -1,0 +1,15 @@
+.home-page .top-banner img {
+    width: 100%;
+    height: 600px;
+}
+
+.home-page .top-banner-text {
+    position: absolute;
+    width: 100%;
+    top: 150px;    
+    color:white;
+}
+
+.home-page .top-banner-text h1 {
+    font-size: 100px;
+}
