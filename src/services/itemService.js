@@ -1,4 +1,5 @@
 import axios from "axios";
+
 var data = [
   {
     _id: "oqwiuhfur7hw",
@@ -76,16 +77,16 @@ class ItemService {
   }
 
   async saveItem(product) {
-    let response = await axios.post(
-      "http://127.0.0.1:5000/api/catalog",
-      product
-    );
-    console.log("result of saving", response.data);
+    try {
+      let response = await axios.post(
+        "http://127.0.0.1:5000/api/catalog",
+        product
+      );
+      console.log("result of saving", response.data);
+    } catch {
+      console.log("Error, product not saved");
+    }
   }
-  /**
-   * receive the item as parameter
-   * send item on a post request to ("http://127.0.0.1:5000/api/catalog");
-   */
 }
 
 export default ItemService;
