@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ItemOnCart from "./itemOnCart";
 
 const Cart = () => {
+  const [couponCode, setCouponCode] = useState("");
   const cart = useContext(storeContext).cart;
 
   const getTotal = () => {
@@ -28,6 +29,14 @@ const Cart = () => {
     );
   }
 
+  const codeChange = (event) => {
+    setCouponCode(event.target.value);
+  };
+
+  const handleValidate = () => {
+    console.log("validate", couponCode);
+  };
+
   return (
     <div className="cart-page">
       <h1>Ready for Checkout?</h1>
@@ -46,6 +55,18 @@ const Cart = () => {
           <h4>Order Total:</h4>
           <h3>$ {getTotal()}</h3>
           <hr />
+          <div className="coupon-code my-control">
+            <label>Do you have a coupon?</label>
+            <input
+              placeholder="Apply coupon"
+              type="text"
+              name="code"
+              onChange={codeChange}
+            />
+            <button className="btn btn-sm btn-info" onClick={handleValidate}>
+              Validate
+            </button>
+          </div>
           <button className="btn btn-block btn-primary">Submit Order</button>
         </div>
       </div>

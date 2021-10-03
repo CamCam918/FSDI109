@@ -18,3 +18,6 @@
     text-align: right;
     margin-right: 7px;
 }
+.coupons-container {
+    list-style: none;
+}

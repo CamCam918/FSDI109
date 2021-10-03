@@ -1,10 +1,11 @@
 import "./admin.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ItemService from "../services/itemService";
 
 const Admin = () => {
   const [product, setProduct] = useState({});
   const [discount, setDiscount] = useState({});
+  const [allCoupons, setAllCoupons] = useState([]);
 
   const discountTextChange = (event) => {
     let name = event.target.name;
@@ -27,9 +28,14 @@ const Admin = () => {
     setProduct(copy);
   };
 
-  const registerCode = () => {
-    console.log(discount);
+  const registerCode = async () => {
+    var copy = { ...discount };
+    copy.couponDiscount = parseFloat(copy.couponDiscount);
+    let service = new ItemService();
+    let resp = await service.saveCouponCode(copy);
+    console.log(resp);
   };
+
   const createProduct = () => {
     console.log(product);
     var copy = { ...product };
@@ -39,6 +45,16 @@ const Admin = () => {
     let service = new ItemService();
     service.saveItem(copy);
   };
+
+  const loadCouponCodes = async () => {
+    let service = new ItemService();
+    let list = await service.getCouponCodes();
+    setAllCoupons(list);
+  };
+
+  useEffect(() => {
+    loadCouponCodes();
+  }, []);
 
   return (
     <div className="admin-page row">
@@ -104,6 +120,16 @@ const Admin = () => {
           <button className="btn btn-info" onClick={registerCode}>
             Register Code
           </button>
+        </div>
+        <div className="coupons-container">
+          <h5>Current Coupons</h5>
+          <ul>
+            {allCoupons.map((x) => (
+              <li key={x.couponCode}>
+                {x.couponCode} - {x.couponDiscount}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

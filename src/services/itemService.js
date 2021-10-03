@@ -87,6 +87,32 @@ class ItemService {
       console.log("Error, product not saved");
     }
   }
+
+  async getCouponCodes() {
+    //use axios to get data from BE (server)
+    let response = await axios.get("http://127.0.0.1:5000/api/couponCodes");
+    return response.data;
+
+    //return mock data
+    return data;
+  }
+
+  async saveCouponCode(coupon) {
+    try {
+      let response = await axios.post(
+        "http://127.0.0.1:5000/api/couponCodes",
+        coupon
+      );
+      return response.data;
+    } catch (error) {
+      console.log("Error, coupon not saved");
+      return [];
+    }
+  }
+
+  // async validateCouponCode() {
+
+  // }
 }
 
 export default ItemService;
