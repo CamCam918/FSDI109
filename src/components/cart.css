@@ -1,0 +1,21 @@
+.coupon-code {
+    display: flex;
+    text-align: right;
+
+}
+
+.coupon-code label {
+    margin-bottom: 10px;
+    font-size: 18px;
+    ;
+
+}
+
+.coupon-code input {
+    margin-bottom: 10px;
+}
+
+.coupon-code button {
+    height: 30px;
+    margin: 34px 10px;
+}

@@ -19,5 +19,12 @@
     margin-right: 7px;
 }
 .coupons-container {
+    margin-top: 25px;
+    }
+
+    .coupons-container ul {
     list-style: none;
+}
+.coupons-container h5 {
+    text-align: center;
 }

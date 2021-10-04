@@ -51,18 +51,20 @@ const Cart = () => {
             ))}
           </ul>
         </div>
-        <div className="col-2 total-container py-3">
+        <div className="col-3 total-container py-3">
           <h4>Order Total:</h4>
           <h3>$ {getTotal()}</h3>
           <hr />
           <div className="coupon-code my-control">
-            <label>Do you have a coupon?</label>
-            <input
-              placeholder="Apply coupon"
-              type="text"
-              name="code"
-              onChange={codeChange}
-            />
+            <div>
+              <label>Do you have a coupon?</label>
+              <input
+                placeholder="Apply coupon"
+                type="text"
+                name="code"
+                onChange={codeChange}
+              />
+            </div>
             <button className="btn btn-sm btn-info" onClick={handleValidate}>
               Validate
             </button>

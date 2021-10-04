@@ -60,7 +60,7 @@ const Admin = () => {
     <div className="admin-page row">
       <h1>Store Manager</h1>
       <div className="new-product-form col">
-        <h4>Create a New Product</h4>
+        <h4>Create a New Product:</h4>
 
         <div className="capture-form">
           <label>Title: </label>

@@ -11,7 +11,7 @@ const Home = () => {
           </h2>
         </div>
 
-        <img src="https://picsum.photos/1200/600" alt="Custom Designs" />
+        <img src="./images/cover-photo1.jpg" alt="Custom Designs" />
       </div>
     </div>
   );
